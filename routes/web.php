@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Material\TipoMaterialController;
+use App\Models\Material\TipoMaterial;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -17,3 +19,8 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
+
+Route::get('/creartipomaterial', [TipoMaterialController::class, 'create'])->name('CrearTipoMaterial');
+Route::post('/creartipomaterial', [TipoMaterialController::class, 'store'])->name('GuardarTipoMaterial');
+Route::get('/tiposmateriales', [TipoMaterialController::class, 'index'])->name('indexTipoMaterial');
+
