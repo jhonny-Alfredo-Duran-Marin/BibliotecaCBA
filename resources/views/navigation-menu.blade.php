@@ -16,6 +16,21 @@
                         {{ __('Dashboard') }}
                     </x-nav-link>
                 </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link href="{{ route('indexTipoMaterial') }}" :active="request()->routeIs('indexTipoMaterial')">
+                        {{ __('Tipo de Materiales') }}
+                    </x-nav-link>
+                </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link href="{{ route('indexCategoriaMaterial') }}" :active="request()->routeIs('indexCategoriaMaterial')">
+                        {{ __('Categoria de Materiales') }}
+                    </x-nav-link>
+                </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link href="{{ route('indexEstadoMaterial') }}" :active="request()->routeIs('indexEstadoMaterial')">
+                        {{ __('Estado de Materiales') }}
+                    </x-nav-link>
+                </div>
             </div>
 
             <div class="hidden sm:flex sm:items-center sm:ms-6">

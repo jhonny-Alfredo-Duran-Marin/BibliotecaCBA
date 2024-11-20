@@ -1,6 +1,9 @@
 <?php
 
+use App\Http\Controllers\CategoriaMaterial\CategoriaMaterialController;
+use App\Http\Controllers\EstadoMaterial\EstadoMaterialController;
 use App\Http\Controllers\Material\TipoMaterialController;
+use App\Models\CategoriaMaterial\CategoriaMaterial;
 use App\Models\Material\TipoMaterial;
 use Illuminate\Support\Facades\Route;
 
@@ -19,11 +22,24 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
-
+/* ----------------TIPO DE MATERIALES -------------- */
 Route::get('/creartipomaterial', [TipoMaterialController::class, 'create'])->name('CrearTipoMaterial');
 Route::post('/creartipomaterial', [TipoMaterialController::class, 'store'])->name('GuardarTipoMaterial');
 Route::get('/tiposmateriales', [TipoMaterialController::class, 'index'])->name('indexTipoMaterial');
 Route::get('/editartipomateriales/{id}/edit', [TipoMaterialController::class, 'edit'])->name('EditTipoMaterial');
 Route::put('/actualizartipomaterial/{id}', [TipoMaterialController::class, 'update'])->name('UpdateTipoMaterial');
 Route::delete('/eliminartipomateriales/{id}', [TipoMaterialController::class, 'destroy'])->name('DeleteTipoMaterial');
-
+/* ---------------- CATEGORIA DE MATERIALES ---------*/
+route::get('/crearcategoriamaterial', [CategoriaMaterialController::class, 'create'])->name('CrearCategoriaMaterial');
+Route::post('/crearcategoriamaterial', [CategoriaMaterialController::class, 'store'])->name('GuardarCategoriaMaterial');
+Route::get('/categoriamateriales', [CategoriaMaterialController::class, 'index'])->name('indexCategoriaMaterial');
+Route::get('/editarcategoriamateriales/{id}/edit', [CategoriaMaterialController::class, 'edit'])->name('EditCategoriaMaterial');
+Route::put('/actualizarcategoriamaterial/{id}', [CategoriaMaterialController::class, 'update'])->name('UpdateCategoriaMaterial');
+Route::delete('/eliminarcategoriamateriales/{id}', [CategoriaMaterialController::class, 'destroy'])->name('DeleteCategoriaMaterial');
+/* ---------------- ESTADO DE MATERIALES ----------*/
+route::get('/crearestadomaterial', [EstadoMaterialController::class, 'create'])->name('CrearEstadoMaterial');
+Route::post('/crearestadomaterial', [EstadoMaterialController::class, 'store'])->name('GuardarEstadoMaterial');
+Route::get('/estadomateriales', [EstadoMaterialController::class, 'index'])->name('indexEstadoMaterial');
+Route::get('/editarestadomateriales/{id}/edit', [EstadoMaterialController::class, 'edit'])->name('EditEstadoMaterial');
+Route::put('/actualizarestadomaterial/{id}', [EstadoMaterialController::class, 'update'])->name('UpdateEstadoMaterial');
+Route::delete('/eliminarestadomateriales/{id}', [EstadoMaterialController::class, 'destroy'])->name('DeleteEstadoMaterial');
