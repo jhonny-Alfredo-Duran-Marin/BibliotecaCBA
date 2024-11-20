@@ -23,4 +23,7 @@ Route::middleware([
 Route::get('/creartipomaterial', [TipoMaterialController::class, 'create'])->name('CrearTipoMaterial');
 Route::post('/creartipomaterial', [TipoMaterialController::class, 'store'])->name('GuardarTipoMaterial');
 Route::get('/tiposmateriales', [TipoMaterialController::class, 'index'])->name('indexTipoMaterial');
+Route::get('/editartipomateriales/{id}/edit', [TipoMaterialController::class, 'edit'])->name('EditTipoMaterial');
+Route::put('/actualizartipomaterial/{id}', [TipoMaterialController::class, 'update'])->name('UpdateTipoMaterial');
+Route::delete('/eliminartipomateriales/{id}', [TipoMaterialController::class, 'destroy'])->name('DeleteTipoMaterial');
 

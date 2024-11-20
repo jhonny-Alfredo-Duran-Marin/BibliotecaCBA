@@ -41,7 +41,7 @@ class TipoMaterialController extends Controller
     ]);
 
     // Redirigir con un mensaje de éxito
-    return redirect()->route('CrearTipoMaterial')->with('success', 'Tipo de material creado correctamente.');
+    return redirect()->route('indexTipoMaterial')->with('success', 'Tipo de material creado correctamente.');
     }
 
     /**
@@ -57,7 +57,8 @@ class TipoMaterialController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $tipomaterial = TipoMaterial::findOrFail($id);
+        return view('materiales.edit_tipo_material', compact('tipomaterial'));
     }
 
     /**
@@ -65,7 +66,16 @@ class TipoMaterialController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $request->validate([
+            'descripcion' => 'required|string|max:255',
+        ]);
+
+        $tipoMaterial = TipoMaterial::findOrFail($id);
+        $tipoMaterial->update([
+            'descripcion' => $request->input('descripcion'),
+        ]);
+
+        return redirect()->route('indexTipoMaterial')->with('success', 'Tipo de material actualizado correctamente.');
     }
 
     /**
@@ -73,6 +83,8 @@ class TipoMaterialController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $tipoMaterial = TipoMaterial::findOrFail($id);
+        $tipoMaterial->delete();
+        return redirect()->route('indexTipoMaterial')->with('success', 'Tipo de material Elimininado correctamente.');
     }
 }
