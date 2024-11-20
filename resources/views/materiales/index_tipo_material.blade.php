@@ -46,6 +46,11 @@
                 </tbody>
             </table>
 
+            <!-- Paginación -->
+            <div class="mt-4">
+                {{ $tiposMateriales->links() }}
+            </div>
+
             <div class="mt-4">
                 <a href="{{ route('CrearTipoMaterial') }}" class="text-indigo-500 hover:underline">Crear nuevo tipo de material</a>
             </div>

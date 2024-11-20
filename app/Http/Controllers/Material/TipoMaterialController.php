@@ -13,7 +13,7 @@ class TipoMaterialController extends Controller
      */
     public function index()
     {
-        $tiposMateriales = TipoMaterial::all(); // Obtener todos los tipos de materiales
+        $tiposMateriales = TipoMaterial::paginate(3); // Obtener todos los tipos de materiales
         return view('materiales.index_tipo_material', compact('tiposMateriales'));
     }
 
