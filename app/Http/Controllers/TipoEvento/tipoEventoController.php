@@ -1,20 +1,20 @@
 <?php
 
-namespace App\Http\Controllers\Material;
+namespace App\Http\Controllers\TipoEvento;
 
 use App\Http\Controllers\Controller;
-use App\Models\Material\TipoMaterial;
+use App\Models\TipoEvento\TipoEvento;
 use Illuminate\Http\Request;
 
-class TipoMaterialController extends Controller
+class tipoEventoController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $tiposMateriales = TipoMaterial::paginate(10); // Obtener todos los tipos de materiales
-        return view('materiales.index_tipo_material', compact('tiposMateriales'));
+        $tipoEvento = TipoEvento::paginate(10); // Obtener todos los tipos de materiales
+        return view('TipoEvento.index_tipo_evento', compact('tipoEvento'));
     }
 
     /**
@@ -22,7 +22,7 @@ class TipoMaterialController extends Controller
      */
     public function create()
     {
-        return view('materiales.create_tipo_material');
+        return view('TipoEvento.create_tipo_evento');
     }
 
     /**
@@ -36,13 +36,14 @@ class TipoMaterialController extends Controller
         ]);
 
         // Crear un nuevo registro
-        TipoMaterial::create([
+        TipoEvento::create([
             'descripcion' => $validated['descripcion'],
         ]);
 
         // Redirigir con un mensaje de éxito
-        return redirect()->route('indexTipoMaterial')->with('success', 'Tipo de material creado correctamente.');
+        return redirect()->route('indexTipoEvento')->with('success', 'Tipo de evento creado correctamente.');
     }
+
 
     /**
      * Display the specified resource.
@@ -57,8 +58,8 @@ class TipoMaterialController extends Controller
      */
     public function edit(string $id)
     {
-        $tipomaterial = TipoMaterial::findOrFail($id);
-        return view('materiales.edit_tipo_material', compact('tipomaterial'));
+        $tipoevento = TipoEvento::findOrFail($id);
+        return view('TipoEvento.edit_tipo_evento', compact('tipoevento'));
     }
 
     /**
@@ -70,12 +71,12 @@ class TipoMaterialController extends Controller
             'descripcion' => 'required|string|max:255',
         ]);
 
-        $tipoMaterial = TipoMaterial::findOrFail($id);
-        $tipoMaterial->update([
+        $tipoEvento = TipoEvento::findOrFail($id);
+        $tipoEvento->update([
             'descripcion' => $request->input('descripcion'),
         ]);
 
-        return redirect()->route('indexTipoMaterial')->with('success', 'Tipo de material actualizado correctamente.');
+        return redirect()->route('indexTipoEvento')->with('success', 'Tipo de evento actualizado correctamente.');
     }
 
     /**
@@ -83,8 +84,9 @@ class TipoMaterialController extends Controller
      */
     public function destroy(string $id)
     {
-        $tipoMaterial = TipoMaterial::findOrFail($id);
-        $tipoMaterial->delete();
-        return redirect()->route('indexTipoMaterial')->with('success', 'Tipo de material Elimininado correctamente.');
+        $tipoEvento = TipoEvento::findOrFail($id);
+        $tipoEvento->delete();
+        return redirect()->route('indexTipoEvento')->with('success', 'Tipo de evento Elimininado correctamente.');
     }
+
 }

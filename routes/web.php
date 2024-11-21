@@ -4,9 +4,8 @@ use App\Http\Controllers\CategoriaMaterial\CategoriaMaterialController;
 use App\Http\Controllers\EstadoMaterial\EstadoMaterialController;
 use App\Http\Controllers\Material\TipoMaterialController;
 use App\Http\Controllers\MaterialBibliografico\MaterialBibliograficoController;
-use App\Models\CategoriaMaterial\CategoriaMaterial;
-use App\Models\Material\TipoMaterial;
-use App\Models\MaterialBibliografico\MaterialBibliografico;
+use App\Http\Controllers\TipoEvento\tipoEventoController;
+use App\Models\TipoEvento\TipoEvento;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -45,7 +44,7 @@ Route::get('/estadomateriales', [EstadoMaterialController::class, 'index'])->nam
 Route::get('/editarestadomateriales/{id}/edit', [EstadoMaterialController::class, 'edit'])->name('EditEstadoMaterial');
 Route::put('/actualizarestadomaterial/{id}', [EstadoMaterialController::class, 'update'])->name('UpdateEstadoMaterial');
 Route::delete('/eliminarestadomateriales/{id}', [EstadoMaterialController::class, 'destroy'])->name('DeleteEstadoMaterial');
-/* ---------------- ESTADO DE MATERIALES ----------*/
+/* ---------------- MATERIAL BIBLIOGRAFICO ----------*/
 route::get('/crearmaterialbibliografico', [MaterialBibliograficoController::class, 'create'])->name('CrearMaterialBibliografico');
 Route::post('/crearmaterialbibliografico', [MaterialBibliograficoController::class, 'store'])->name('GuardarMaterialBibliografico');
 Route::get('/materialbibliografico', [MaterialBibliograficoController::class, 'index'])->name('indexMaterialBibliografico');
@@ -53,3 +52,10 @@ Route::get('/editarmaterialbibliografico/{id}/edit', [MaterialBibliograficoContr
 Route::put('/actualizarmaterialbibliografico/{id}', [MaterialBibliograficoController::class, 'update'])->name('UpdateMaterialBibliografico');
 Route::delete('/eliminarmaterialesbibliografico/{id}', [MaterialBibliograficoController::class, 'destroy'])->name('DeleteMaterialBibliografico');
 Route::get('materialbibliografico/{id}', [MaterialBibliograficoController::class, 'show'])->name('ShowMaterialBibliografico');
+/* ---------------- TIPO DE EVENTO ----------*/
+Route::get('/creartipoevento', [tipoEventoController::class, 'create'])->name('CrearTipoEvento');
+Route::post('/creartipoevento', [tipoEventoController::class, 'store'])->name('GuardarTipoEvento');
+Route::get('/tiposevento', [tipoEventoController::class, 'index'])->name('indexTipoEvento');
+Route::get('/editartipoevento/{id}/edit', [tipoEventoController::class, 'edit'])->name('EditTipoEvento');
+Route::put('/actualizartipoeventol/{id}', [tipoEventoController::class, 'update'])->name('UpdateTipoEvento');
+Route::delete('/eliminartipomaevento/{id}', [tipoEventoController::class, 'destroy'])->name('DeleteTipoEvento');
