@@ -3,8 +3,10 @@
 use App\Http\Controllers\CategoriaMaterial\CategoriaMaterialController;
 use App\Http\Controllers\EstadoMaterial\EstadoMaterialController;
 use App\Http\Controllers\Material\TipoMaterialController;
+use App\Http\Controllers\MaterialBibliografico\MaterialBibliograficoController;
 use App\Models\CategoriaMaterial\CategoriaMaterial;
 use App\Models\Material\TipoMaterial;
+use App\Models\MaterialBibliografico\MaterialBibliografico;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -43,3 +45,11 @@ Route::get('/estadomateriales', [EstadoMaterialController::class, 'index'])->nam
 Route::get('/editarestadomateriales/{id}/edit', [EstadoMaterialController::class, 'edit'])->name('EditEstadoMaterial');
 Route::put('/actualizarestadomaterial/{id}', [EstadoMaterialController::class, 'update'])->name('UpdateEstadoMaterial');
 Route::delete('/eliminarestadomateriales/{id}', [EstadoMaterialController::class, 'destroy'])->name('DeleteEstadoMaterial');
+/* ---------------- ESTADO DE MATERIALES ----------*/
+route::get('/crearmaterialbibliografico', [MaterialBibliograficoController::class, 'create'])->name('CrearMaterialBibliografico');
+Route::post('/crearmaterialbibliografico', [MaterialBibliograficoController::class, 'store'])->name('GuardarMaterialBibliografico');
+Route::get('/materialbibliografico', [MaterialBibliograficoController::class, 'index'])->name('indexMaterialBibliografico');
+Route::get('/editarmaterialbibliografico/{id}/edit', [MaterialBibliograficoController::class, 'edit'])->name('EditMaterialBibliografico');
+Route::put('/actualizarmaterialbibliografico/{id}', [MaterialBibliograficoController::class, 'update'])->name('UpdateMaterialBibliografico');
+Route::delete('/eliminarmaterialesbibliografico/{id}', [MaterialBibliograficoController::class, 'destroy'])->name('DeleteMaterialBibliografico');
+Route::get('materialbibliografico/{id}', [MaterialBibliograficoController::class, 'show'])->name('ShowMaterialBibliografico');

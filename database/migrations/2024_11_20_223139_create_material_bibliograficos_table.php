@@ -14,6 +14,9 @@ return new class extends Migration
         Schema::create('material_bibliograficos', function (Blueprint $table) {
             $table->id();
             $table->string('codigo', 20)->unique();
+            $table->foreignId('estado_id')->constrained('estado_materials')->onDelete('cascade');
+            $table->foreignId('categoria_id')->constrained('categoria_materials')->onDelete('cascade');
+            $table->foreignId('tipo_id')->constrained('tipo_materials')->onDelete('cascade');
             $table->string('titulo', 255);
             $table->string('editorial', 100);
             $table->string('autor', 100);
