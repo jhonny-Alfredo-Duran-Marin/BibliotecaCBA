@@ -6,8 +6,8 @@ use App\Http\Controllers\Evento\EventController;
 use App\Http\Controllers\Material\TipoMaterialController;
 use App\Http\Controllers\MaterialBibliografico\MaterialBibliograficoController;
 use App\Http\Controllers\TipoEvento\tipoEventoController;
-use App\Models\TipoEvento\TipoEvento;
 use Illuminate\Support\Facades\Route;
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -61,9 +61,13 @@ Route::get('/editartipoevento/{id}/edit', [tipoEventoController::class, 'edit'])
 Route::put('/actualizartipoeventol/{id}', [tipoEventoController::class, 'update'])->name('UpdateTipoEvento');
 Route::delete('/eliminartipomaevento/{id}', [tipoEventoController::class, 'destroy'])->name('DeleteTipoEvento');
 /* ---------------- EVENTO --------------- */
+Route::get('/get-events', [EventController::class, 'getEvents'])->name('getEvents');
+Route::get('/evento', [EventController::class, 'index'])->name('IndexEvento');
 Route::get('/crearevento', [EventController::class, 'create'])->name('CrearEvento');
 Route::post('/crearevento', [EventController::class, 'store'])->name('GuardarEvento');
-Route::get('/evento', [EventController::class, 'index'])->name('IndexEvento');
+Route::get('evento/{id}', [EventController::class, 'show'])->name('ShowEvento');
 Route::get('/editarevento/{id}/edit', [EventController::class, 'edit'])->name('EditEvento');
 Route::put('/actualizareventol/{id}', [EventController::class, 'update'])->name('UpdateEvento');
 Route::delete('/eliminaraevento/{id}', [EventController::class, 'destroy'])->name('DeleteEvento');
+// routes/web.php
+Route::post('/crearevento', [EventController::class, 'store'])->name('GuardarEvento');
