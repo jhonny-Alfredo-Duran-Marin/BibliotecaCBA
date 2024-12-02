@@ -5,6 +5,7 @@ use App\Http\Controllers\EstadoMaterial\EstadoMaterialController;
 use App\Http\Controllers\Evento\EventController;
 use App\Http\Controllers\Material\TipoMaterialController;
 use App\Http\Controllers\MaterialBibliografico\MaterialBibliograficoController;
+use App\Http\Controllers\Sala\SalaController;
 use App\Http\Controllers\TipoEvento\tipoEventoController;
 use Illuminate\Support\Facades\Route;
 
@@ -70,4 +71,10 @@ Route::get('/editarevento/{id}/edit', [EventController::class, 'edit'])->name('E
 Route::put('/actualizareventol/{id}', [EventController::class, 'update'])->name('UpdateEvento');
 Route::delete('/eliminaraevento/{id}', [EventController::class, 'destroy'])->name('DeleteEvento');
 // routes/web.php
-Route::post('/crearevento', [EventController::class, 'store'])->name('GuardarEvento');
+/* ---------------- Salas --------------- */
+Route::get('/crearsala', [SalaController::class, 'create'])->name('CrearSala');
+Route::post('/crearsala', [SalaController::class, 'store'])->name('GuardarSala');
+Route::get('/sala', [SalaController::class, 'index'])->name('IndexSala');
+Route::get('/editarsala/{id}/edit', [SalaController::class, 'edit'])->name('EditSala');
+Route::put('/actualizarsala/{id}', [SalaController::class, 'update'])->name('UpdateSala');
+Route::delete('/eliminarsala/{id}', [SalaController::class, 'destroy'])->name('DeleteSala');

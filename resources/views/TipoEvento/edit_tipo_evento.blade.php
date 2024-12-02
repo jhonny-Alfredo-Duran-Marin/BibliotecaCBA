@@ -7,13 +7,33 @@
                 @method('PUT')
                 <div class="mb-6">
                     <!-- Input -->
+                    <div class="mb-4">
+                        <x-label for="descripcion" value="Descripción" />
+                        <x-input id="descripcion"
+                            class="block w-full py-2 text-lg border-gray-300 focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md"
+                            type="text" name="descripcion" :value="old('descripcion',$sala->descripcion)" required autofocus
+                            autocomplete="descripcion" />
+                    </div>
+                    <div class="mb-4">
+                        <x-label for="fecha" value="Fecha" />
+                        <x-input type="date" name="fecha" id="fecha" class="w-full border rounded"
+                            value="{{ old('fecha') }}" required />
+                    </div>
+                    <div class="mb-4">
+
+                        <x-label for="capacidad" value="Capacidad" />
+                        <x-input id="capacidad"
+                            class="block w-full py-2 text-lg border-gray-300 focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md"
+                            type="number" name="capacidad" :value="old('capacidad')" required autofocus
+                            autocomplete="capacidad" />
+                    </div>
                     <div class="w-full mb-4">
                         <x-label for="descripcion" value="Descripción" />
                         <x-input id="descripcion"
                                  class="block w-full py-2 text-lg border-gray-300 focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md"
                                  type="text"
                                  name="descripcion"
-                                 :value="old('descripcion',$tipoevento->descripcion)"
+                                 :value="old('descripcion')"
                                  required
                                  autofocus
                                  autocomplete="descripcion" />

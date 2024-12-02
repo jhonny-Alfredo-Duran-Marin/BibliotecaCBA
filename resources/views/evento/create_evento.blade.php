@@ -40,7 +40,7 @@
                     <x-label for="tipoevento" value="Tipo Evento" class="text-sm font-medium text-gray-700 mb-2" />
                     <x-select-input
                     :items="$tipoevento"
-                    name="tipo_evento_id"  
+                    name="tipo_evento_id"
                     :selected="old('tipo_evento_id')"
                     class="block w-full py-2 px-4 text-lg border-gray-300 focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md"
                 />

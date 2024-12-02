@@ -59,8 +59,8 @@ class EventController extends Controller
             'titulo' => 'required|string|max:255',
             'descripcion' => 'nullable|string|max:1000',
             'fecha' => 'required|date',
-            'hora_inicio' => 'required|date_format:H:i',
-            'hora_fin' => 'nullable|date_format:H:i|after:hora_inicio',
+            'hora_inicio' => 'required',
+            'hora_fin' => 'nullable|after:hora_inicio',
             'tipo_evento_id' => 'required|exists:tipo_eventos,id',
         ]);
 
@@ -106,6 +106,7 @@ class EventController extends Controller
      */
     public function update(Request $request, string $id)
     {
+        
         // Validar los datos del evento
         $validated = $request->validate([
             'titulo' => 'required|string|max:255',
@@ -118,6 +119,16 @@ class EventController extends Controller
 
         // Obtener el evento y actualizar sus datos
         $evento = Evento::findOrFail($id);
+        $evento->update([
+            'titulo' => $request->titulo,
+            'fecha' => $request->fecha,
+            'autor' => $request->autor,
+            'hora_inicio' => $request->hora_inicio,
+            'hora_fin' => $request->hora_fin,
+            'descripcion' => $request->descripcion,
+            'tipo_evento_id' => $request->tipo_evento_id,
+        ]);
+
         $evento->update($request->all());
 
         // Redirigir con mensaje de éxito
