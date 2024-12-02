@@ -32,6 +32,10 @@
                 <x-label value="Tipo de Evento:" />
                 <p class="text-gray-700">{{ $evento->tipoEvento->descripcion }}</p>
             </div>
+            <div class="mb-4">
+                <x-label value="Sala:" />
+                <p class="text-gray-700">{{ $evento->sala->descripcion }}</p>
+            </div>
 
             <div class="flex justify-end mt-4">
                 <a href="{{ route('IndexEvento') }}" class="bg-gray-300 text-gray-700 px-4 py-2 rounded">

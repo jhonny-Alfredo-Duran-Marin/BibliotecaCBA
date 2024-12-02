@@ -45,6 +45,16 @@
                     class="block w-full py-2 px-4 text-lg border-gray-300 focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md"
                 />
                 </div>
+                <!-- Select: Tipo Evento -->
+                <div class="w-full">
+                    <x-label for="sala" value="Sala" class="text-sm font-medium text-gray-700 mb-2" />
+                    <x-select-input
+                    :items="$sala"
+                    name="sala_id"
+                    :selected="old('sala_id')"
+                    class="block w-full py-2 px-4 text-lg border-gray-300 focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md"
+                />
+                </div>
                 <div class="flex justify-end mt-4">
                     <x-button class="bg-blue-500 text-white px-4 py-2 rounded">
                         Guardar

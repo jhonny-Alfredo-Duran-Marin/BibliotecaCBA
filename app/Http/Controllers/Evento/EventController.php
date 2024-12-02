@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Evento;
 
 use App\Http\Controllers\Controller;
 use App\Models\Evento\Evento;
+use App\Models\Sala\Sala;
 use App\Models\TipoEvento\TipoEvento;
 use Illuminate\Http\Request;
 
@@ -45,7 +46,8 @@ class EventController extends Controller
     public function create()
     {
         $tipoevento = TipoEvento::pluck('descripcion', 'id')->toArray();
-        return view('evento.create_evento', compact('tipoevento'));  // Pasando 'date' a la vista
+        $sala = Sala::pluck('descripcion','id')->toArray();
+        return view('evento.create_evento', compact('tipoevento','sala'));  // Pasando 'date' a la vista
     }
 
 
@@ -62,6 +64,7 @@ class EventController extends Controller
             'hora_inicio' => 'required',
             'hora_fin' => 'nullable|after:hora_inicio',
             'tipo_evento_id' => 'required|exists:tipo_eventos,id',
+            'sala_id' => 'required|exists:salas,id',
         ]);
 
         try {
@@ -73,6 +76,7 @@ class EventController extends Controller
                 'hora_inicio' => $validated['hora_inicio'],
                 'hora_fin' => $validated['hora_fin'],
                 'tipo_evento_id' => $validated['tipo_evento_id'],
+                'sala_id' => $validated['sala_id'],
             ]);
 
             // Retornar el evento creado
@@ -98,7 +102,8 @@ class EventController extends Controller
         // Obtener el evento y los tipos de eventos para el formulario de edición
         $event = Evento::findOrFail($id);
         $tipoevento = TipoEvento::pluck('descripcion', 'id')->toArray();
-        return view('evento.edit_evento', compact('event', 'tipoevento'));
+        $sala = Sala::pluck('descripcion','id')->toArray();
+        return view('evento.edit_evento', compact('event', 'tipoevento','sala'));
     }
 
     /**
@@ -106,7 +111,7 @@ class EventController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        
+
         // Validar los datos del evento
         $validated = $request->validate([
             'titulo' => 'required|string|max:255',
@@ -115,6 +120,7 @@ class EventController extends Controller
             'hora_fin' => 'nullable|after:hora_inicio',
             'descripcion' => 'nullable|string',
             'tipo_evento_id' => 'required|exists:tipo_eventos,id',
+            'sala_id' => 'required|exists:salas,id',
         ]);
 
         // Obtener el evento y actualizar sus datos
@@ -127,6 +133,7 @@ class EventController extends Controller
             'hora_fin' => $request->hora_fin,
             'descripcion' => $request->descripcion,
             'tipo_evento_id' => $request->tipo_evento_id,
+            'sala_id' =>$request->sala_id,
         ]);
 
         $evento->update($request->all());

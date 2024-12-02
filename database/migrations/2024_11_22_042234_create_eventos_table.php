@@ -19,6 +19,7 @@ return new class extends Migration
             $table->time('hora_inicio');
             $table->time('hora_fin')->nullable();
             $table->foreignId('tipo_evento_id')->constrained('tipo_eventos')->onDelete('cascade');
+            $table->foreignId('sala_id')->constrained('salas')->onDelete('cascade');
             $table->timestamps();
         });
     }
