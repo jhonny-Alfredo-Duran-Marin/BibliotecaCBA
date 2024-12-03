@@ -61,6 +61,11 @@
                         {{ __('Gestionar Donacion') }}
                     </x-nav-link>
                 </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link href="{{ route('IndexSuscripcion') }}" :active="request()->routeIs('IndexSuscripcion')">
+                        {{ __('Gestionar Suscripciones') }}
+                    </x-nav-link>
+                </div>
             </div>
 
             <div class="hidden sm:flex sm:items-center sm:ms-6">
