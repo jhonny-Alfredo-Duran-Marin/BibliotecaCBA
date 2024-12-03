@@ -51,6 +51,16 @@
                         {{ __('Gestionar Salas') }}
                     </x-nav-link>
                 </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link href="{{ route('IndexDonante') }}" :active="request()->routeIs('IndexDonante')">
+                        {{ __('Gestionar Donantes') }}
+                    </x-nav-link>
+                </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link href="{{ route('IndexDonacion') }}" :active="request()->routeIs('IndexDonacion')">
+                        {{ __('Gestionar Donacion') }}
+                    </x-nav-link>
+                </div>
             </div>
 
             <div class="hidden sm:flex sm:items-center sm:ms-6">

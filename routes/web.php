@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CategoriaMaterial\CategoriaMaterialController;
+use App\Http\Controllers\Donacion\DonacionController;
 use App\Http\Controllers\Donante\DonanteController;
 use App\Http\Controllers\EstadoMaterial\EstadoMaterialController;
 use App\Http\Controllers\Evento\EventController;
@@ -87,3 +88,11 @@ Route::get('/donante', [DonanteController::class, 'index'])->name('IndexDonante'
 Route::get('/editardonante/{id}/edit', [DonanteController::class, 'edit'])->name('EditDonante');
 Route::put('/actualizardonante/{id}', [DonanteController::class, 'update'])->name('UpdateDonante');
 Route::delete('/eliminardonante/{id}', [DonanteController::class, 'destroy'])->name('DeleteDonante');
+/* ---------------- Donaciones --------------- */
+Route::get('/creardonacion', [DonacionController::class, 'create'])->name('CrearDonacion');
+Route::post('/creardonacion', [DonacionController::class, 'store'])->name('GuardarDonacion');
+Route::get('/donacion', [DonacionController::class, 'index'])->name('IndexDonacion');
+Route::get('/editardonacion/{id}/edit', [DonacionController::class, 'edit'])->name('EditDonacion');
+Route::put('/actualizardonacion/{id}', [DonacionController::class, 'update'])->name('UpdateDonacion');
+Route::delete('/eliminardonacion/{id}', [DonacionController::class, 'destroy'])->name('DeleteDonacion');
+Route::get('danacion/{id}', [DonacionController::class, 'show'])->name('ShowDonacion');

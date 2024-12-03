@@ -2,6 +2,7 @@
 
 namespace App\Models\Donante;
 
+use App\Models\Donacion\Donacion;
 use Illuminate\Database\Eloquent\Model;
 
 class Donante extends Model
@@ -11,4 +12,9 @@ class Donante extends Model
         'sexo',
         'celular',
     ];
+    public function donaciones()
+    {
+        return $this->hasMany(Donacion::class, 'donante_id');
+    }
+
 }
