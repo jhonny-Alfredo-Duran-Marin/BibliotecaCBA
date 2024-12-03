@@ -9,6 +9,7 @@ use App\Http\Controllers\Material\TipoMaterialController;
 use App\Http\Controllers\MaterialBibliografico\MaterialBibliograficoController;
 use App\Http\Controllers\Pago\PagoController;
 use App\Http\Controllers\Sala\SalaController;
+use App\Http\Controllers\Suscripcion\SuscripcionControlle;
 use App\Http\Controllers\TipoEvento\tipoEventoController;
 use Illuminate\Support\Facades\Route;
 
@@ -104,3 +105,11 @@ Route::get('/pago', [PagoController::class, 'index'])->name('IndexPago');
 Route::get('/editarpago/{id}/edit', [PagoController::class, 'edit'])->name('EditPago');
 Route::put('/actualizarpago/{id}', [PagoController::class, 'update'])->name('UpdatePago');
 Route::delete('/eliminarpago/{id}', [PagoController::class, 'destroy'])->name('DeletePago');
+/* ---------------- Suscripcion ----------*/
+Route::get('/crearsuscripcion', [SuscripcionControlle::class, 'create'])->name('CrearSuscripcion');
+Route::post('/crearsuscripcion', [SuscripcionControlle::class, 'store'])->name('GuardarSuscripcion');
+Route::get('/suscripcion', [SuscripcionControlle::class, 'index'])->name('IndexSuscripcion');
+Route::get('/editarsuscripcion/{id}/edit', [SuscripcionControlle::class, 'edit'])->name('EditSuscripcion');
+Route::put('/actualizarsuscripcion/{id}', [SuscripcionControlle::class, 'update'])->name('UpdateSuscripcion');
+Route::delete('/eliminarsuscripcion/{id}', [SuscripcionControlle::class, 'destroy'])->name('DeleteSuscripcion');
+
