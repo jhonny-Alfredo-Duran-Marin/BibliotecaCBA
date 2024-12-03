@@ -194,6 +194,56 @@
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
         </div>
+        <div class="pt-2 pb-3 space-y-1">
+            <x-responsive-nav-link href="{{ route('indexTipoMaterial') }}" :active="request()->routeIs('indexTipoMaterial')">
+                {{ __('Tipo de Materiales') }}
+            </x-responsive-nav-link>
+        </div>
+        <div class="pt-2 pb-3 space-y-1">
+            <x-responsive-nav-link href="{{ route('indexCategoriaMaterial') }}" :active="request()->routeIs('indexCategoriaMaterial')">
+                {{ __('Categoria de Materiales') }}
+            </x-responsive-nav-link>
+        </div>
+        <div class="pt-2 pb-3 space-y-1">
+            <x-responsive-nav-link href="{{ route('indexEstadoMaterial') }}" :active="request()->routeIs('indexEstadoMaterial')">
+                {{ __('Estado de Materiales') }}
+            </x-responsive-nav-link>
+        </div>
+        <div class="pt-2 pb-3 space-y-1">
+            <x-responsive-nav-link href="{{ route('indexMaterialBibliografico') }}" :active="request()->routeIs('indexMaterialBibliografico')">
+                {{ __('Material Bibliografico') }}
+            </x-responsive-nav-link>
+        </div>
+        <div class="pt-2 pb-3 space-y-1">
+            <x-responsive-nav-link href="{{ route('indexTipoEvento') }}" :active="request()->routeIs('indexTipoEvento')">
+                {{ __('Tipo de Evento') }}
+            </x-responsive-nav-link>
+        </div>
+        <div class="pt-2 pb-3 space-y-1">
+            <x-responsive-nav-link href="{{ route('IndexEvento') }}" :active="request()->routeIs('IndexEvento')">
+                {{ __('Eventos') }}
+            </x-responsive-nav-link>
+        </div>
+        <div class="pt-2 pb-3 space-y-1">
+            <x-responsive-nav-link href="{{ route('IndexSala') }}" :active="request()->routeIs('IndexSala')">
+                {{ __('Gestionar Salas') }}
+            </x-responsive-nav-link>
+        </div>
+        <div class="pt-2 pb-3 space-y-1">
+            <x-responsive-nav-link href="{{ route('IndexDonante') }}" :active="request()->routeIs('IndexDonante')">
+                {{ __('Gestionar Donantes') }}
+            </x-responsive-nav-link>
+        </div>
+        <div class="pt-2 pb-3 space-y-1">
+            <x-responsive-nav-link href="{{ route('IndexDonacion') }}" :active="request()->routeIs('IndexDonacion')">
+                {{ __('Gestionar Donacion') }}
+            </x-responsive-nav-link>
+        </div>
+        <div class="pt-2 pb-3 space-y-1">
+            <x-responsive-nav-link href="{{ route('IndexSuscripcion') }}" :active="request()->routeIs('IndexSuscripcion')">
+                {{ __('Gestionar Suscripciones') }}
+            </x-responsive-nav-link>
+        </div>
 
         <!-- Responsive Settings Options -->
         <div class="pt-4 pb-1 border-t border-gray-200 dark:border-gray-600">
