@@ -7,6 +7,7 @@ use App\Http\Controllers\EstadoMaterial\EstadoMaterialController;
 use App\Http\Controllers\Evento\EventController;
 use App\Http\Controllers\Material\TipoMaterialController;
 use App\Http\Controllers\MaterialBibliografico\MaterialBibliograficoController;
+use App\Http\Controllers\Pago\PagoController;
 use App\Http\Controllers\Sala\SalaController;
 use App\Http\Controllers\TipoEvento\tipoEventoController;
 use Illuminate\Support\Facades\Route;
@@ -96,3 +97,10 @@ Route::get('/editardonacion/{id}/edit', [DonacionController::class, 'edit'])->na
 Route::put('/actualizardonacion/{id}', [DonacionController::class, 'update'])->name('UpdateDonacion');
 Route::delete('/eliminardonacion/{id}', [DonacionController::class, 'destroy'])->name('DeleteDonacion');
 Route::get('danacion/{id}', [DonacionController::class, 'show'])->name('ShowDonacion');
+/* ---------------- Metodo de Pago ----------*/
+Route::get('/crearpago', [PagoController::class, 'create'])->name('CrearPago');
+Route::post('/crearpago', [PagoController::class, 'store'])->name('GuardarPago');
+Route::get('/pago', [PagoController::class, 'index'])->name('IndexPago');
+Route::get('/editarpago/{id}/edit', [PagoController::class, 'edit'])->name('EditPago');
+Route::put('/actualizarpago/{id}', [PagoController::class, 'update'])->name('UpdatePago');
+Route::delete('/eliminarpago/{id}', [PagoController::class, 'destroy'])->name('DeletePago');
