@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CategoriaMaterial\CategoriaMaterialController;
+use App\Http\Controllers\Donante\DonanteController;
 use App\Http\Controllers\EstadoMaterial\EstadoMaterialController;
 use App\Http\Controllers\Evento\EventController;
 use App\Http\Controllers\Material\TipoMaterialController;
@@ -78,3 +79,11 @@ Route::get('/sala', [SalaController::class, 'index'])->name('IndexSala');
 Route::get('/editarsala/{id}/edit', [SalaController::class, 'edit'])->name('EditSala');
 Route::put('/actualizarsala/{id}', [SalaController::class, 'update'])->name('UpdateSala');
 Route::delete('/eliminarsala/{id}', [SalaController::class, 'destroy'])->name('DeleteSala');
+
+/* ---------------- Donante --------------- */
+Route::get('/creardonante', [DonanteController::class, 'create'])->name('CrearDonante');
+Route::post('/creardonante', [DonanteController::class, 'store'])->name('GuardarDonante');
+Route::get('/donante', [DonanteController::class, 'index'])->name('IndexDonante');
+Route::get('/editardonante/{id}/edit', [DonanteController::class, 'edit'])->name('EditDonante');
+Route::put('/actualizardonante/{id}', [DonanteController::class, 'update'])->name('UpdateDonante');
+Route::delete('/eliminardonante/{id}', [DonanteController::class, 'destroy'])->name('DeleteDonante');
